@@ -1,5 +1,15 @@
 {
+  "name": "my-hyperlocal-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
   "dependencies": {
+    "astro": "^4.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "contentful": "^11.10.1",
     "tailwindcss": "^4.1.18"
