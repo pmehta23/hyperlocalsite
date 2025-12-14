@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: tweak body font if you want */
+body {
+  @apply antialiased;
+}
+

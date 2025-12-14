@@ -1,0 +1,23 @@
+---
+// src/components/StoryCard.astro
+import type { Entry } from 'contentful';
+import type { StoryFields } from '../lib/contentful';
+
+const { story } = Astro.props as { story: Entry<StoryFields> };
+
+const slug = story.fields.slug;
+const title = story.fields.title;
+const excerpt = story.fields.excerpt;
+const location = story.fields.location;
+---
+<a href={`/stories/${slug}`} class="block rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow">
+  <div class="flex flex-col gap-1">
+    <h3 class="font-semibold text-lg">{title}</h3>
+    {location && <p class="text-xs text-slate-500">📍 {location}</p>}
+    <p class="text-sm text-slate-700 mt-1 line-clamp-3">
+      {excerpt}
+    </p>
+    <span class="mt-2 text-xs font-medium text-blue-600">Read story →</span>
+  </div>
+</a>
+

@@ -1,0 +1,27 @@
+---
+// src/pages/stories/index.astro
+import Layout from '../../layouts/Layout.astro';
+import { getStories } from '../../lib/contentful';
+import StoryCard from '../../components/StoryCard.astro';
+
+const stories = await getStories();
+---
+<Layout title="Stories from Mumbai">
+  <section class="mb-8">
+    <h1 class="text-2xl font-semibold tracking-tight mb-2">Stories from Mumbai</h1>
+    <p class="text-sm text-slate-700">
+      Hyperlocal stories, experiences and moments from across the city.
+    </p>
+  </section>
+
+  {stories.length === 0 ? (
+    <p class="text-sm text-slate-500">No stories published yet.</p>
+  ) : (
+    <div class="grid gap-4 md:grid-cols-3">
+      {stories.map((story) => (
+        <StoryCard story={story} />
+      ))}
+    </div>
+  )}
+</Layout>
+
